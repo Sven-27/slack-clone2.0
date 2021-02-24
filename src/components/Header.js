@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.css'
 import styled from 'styled-components'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./GlobalStyles";
+import { lightTheme, darkTheme } from "../Themes"
 
 function Header() {
+    const [theme, setTheme] = useState('light');
+    const themeToggler = () => {
+      theme === 'light' ? setTheme('dark') : setTheme('light')
+  }
     return (
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <>
+      <GlobalStyles/>
         <Container>
+        <button onClick={themeToggler}>Switch Theme</button>
             <Main>
                 <AccessTimeIcon />
                 <SearchContainer>
@@ -25,6 +36,8 @@ function Header() {
                 </UserImage>
             </UserContainer>
         </Container>
+        </>
+    </ThemeProvider>
     )
 }
 
@@ -39,6 +52,16 @@ justify-content: center;
 position: relative;
 z-index: 10;
 box-shadow: 0 1px 0 0 rgb(255 255 255);
+
+button{
+    position: absolute;
+    left: 19px;
+    padding: 3px 5px;
+    color: white;
+    background: #350d36;
+    border: white;
+    cursor: pointer;
+}
 `
 
 const Main = styled.div`
