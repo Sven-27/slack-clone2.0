@@ -39,7 +39,7 @@ function Sidebar() {
                 {
                     channelNames.map(item => (
                         <Channel>
-                        {item.hash}
+                        <p>{item.hash}</p>
                         {item.name}
                         </Channel>
                         
@@ -136,6 +136,10 @@ padding-right: 10px;
 cursor: pointer;
 :hover{
     background: #350d36;
+}
 
+p{
+    margin-right: 5px;
+}
 `
 

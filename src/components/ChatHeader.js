@@ -43,6 +43,7 @@ display: flex;
 
 h4{
     margin-bottom: 10px;
+    padding-right: 10px;
 }
 
 .MuiSvgIcon-root{
@@ -72,5 +73,7 @@ const ChannelInfo = styled.div`
 .MuiSvgIcon-root{
     width: 35px;
     height: 35px;
+    display: flex;
+    align-items: center;
 }
 `
