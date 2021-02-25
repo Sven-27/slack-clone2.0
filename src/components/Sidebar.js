@@ -61,19 +61,20 @@ function Sidebar(props) {
 export default Sidebar
 
 const Container = styled.div`
-background: #3f0e40;
-
+background: #222;
+color: rgb(0,150,255);
+margin-top: 0;
 `
 
 const WorkspaceContainer = styled.div`
-color: white;
+color: rgb(0,150,255);
 height: 64px;
 display: flex;
 padding-left: 19px;
 align-items: center;
 padding-left: 19px;
 justify-content: space-between;
-border-bottom: 1px solid #532753;
+ border-bottom: 1px solid rgb(0,150,255); 
 `
 
 const Name = styled.div`
@@ -83,12 +84,13 @@ const Name = styled.div`
 const NewMessage = styled.div`
 width: 36px;
 height: 36px;
-background: white;
-color: #3f0e40;
-fill: #3f0e40;
+background: #444;
+color: inherit;
+fill: #444;
 display: flex;
 justify-content: center;
 align-items: center;
+border: 1px solid rgb(0,150,255);
 border-radius: 50%;
 margin-right: 20px;
 cursor: pointer;
@@ -99,7 +101,7 @@ padding-top: 20px;
 `
 
 const MainChannelItem = styled.div`
-color: rgb(188, 171, 188);
+color: rgb(0,150,255);
 display: grid;
 grid-template-columns: 15% auto;
 height: 28px;
@@ -107,12 +109,12 @@ align-items: center;
 padding-left: 19px;
 cursor: pointer;
 :hover{
-    background: #350d36;
+    background: #444;
 }
 `
 
 const ChannelsContainer = styled.div`
-color: rgb(188, 171, 188);
+color: rgb(0,150,255);
 margin-top: 10px;
 `
 
@@ -132,7 +134,7 @@ flex-direction: column;
 `
 
 const Channel = styled.div`
-color: rgb(188, 171, 188);
+color: inherit;
 display: flex;
 width: 100%;
 height: 28px;
@@ -141,7 +143,7 @@ padding-left: 19px;
 padding-right: 10px;
 cursor: pointer;
 :hover{
-    background: #350d36;
+    background: #444;
 }
 
 p{

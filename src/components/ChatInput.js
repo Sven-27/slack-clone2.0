@@ -63,7 +63,7 @@ padding-bottom: 24px;
 `
 
 const InputContainer = styled.div`
-border: 1px solid #8d8d8e;
+border: 1px solid rgb(0, 150,255);
 border-radius: 4px;
 
 form{
@@ -78,6 +78,7 @@ form{
         font-size: 13px;
         outline: none;
         width: 100%;
+        color: #ababab;
         background: transparent;
         display: flex;
         margin-top: 8px;
@@ -107,7 +108,6 @@ align-items: center;
 
 const Right = styled.div`
 flex: 0.5;
-
 display: flex;
 align-items: center;
 justify-content: flex-end;
@@ -123,7 +123,7 @@ justify-content: flex-end;
 `
 
 const SendButton = styled.div`
-background: #007a5a;
+width: 18px;
 border-radius: 2px;
 width: 32px;
 height: 32px;
@@ -135,16 +135,22 @@ margin-bottom: 3px;
 cursor: pointer;
 
 .MuiSvgIcon-root{
-    width: 18px;
-
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    border-radius: 4px;
+    background: rgb(0,150,255);
+    :hover{
+    background: #4900ff;
 }
 
-:hover{
-    background: #148567;
+
 }
 `
 
 const Send = styled(SendIcon)`
 color: #d9d9d9;
+
+
 `
 

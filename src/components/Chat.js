@@ -52,7 +52,7 @@ const Channel = styled.div`
 const ChannelDetails = styled.div`
 display: flex;
 align-items: center;
-color: #ababab;
+/* color: #ababab; */
 
 `
 const Info = styled(InfoOutlinedIcon)`
@@ -64,7 +64,6 @@ font-weight: 700;
 
 const ChannelInfo = styled.div`
 font-weight: 400;
-color: #ababab;
 font-size: 13px;
 margin-top: 8px;
 `

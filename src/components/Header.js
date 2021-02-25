@@ -44,8 +44,8 @@ function Header() {
 export default Header
 
 const Container = styled.div`
-background: #350d36;
-color: white;
+background: #333;
+color: rgb(0,150,255);
 display: flex;
 align-items: center;
 justify-content: center;
@@ -58,9 +58,9 @@ button{
     position: absolute;
     left: 19px;
     padding: 3px 5px;
-    color: white;
-    background: #350d36;
-    border: white;
+    color: inherit;
+    background: transparent;
+    outline: none;
     cursor: pointer;
 }
 `
@@ -80,7 +80,7 @@ margin-right: 16px;
 
 const Search = styled.div`
 width: 100%;
-box-shadow: inset 0 0 0 1px rgb(104 74 104);
+box-shadow: inset 0 0 0 1px rgb(0, 150, 255);
 border-radius: 6px;
 display: flex;
 align-items: center;
@@ -91,9 +91,12 @@ input{
     outline: none;
     padding-left: 8px;
     padding-right: 8px;
-    color: white;
+    color: rgb(0,150,255);
     padding-top: 4px;
     padding-bottom: 4px;
+}
+input::placeholder{
+    color: rgb(0,150,255);
 }
 `
 

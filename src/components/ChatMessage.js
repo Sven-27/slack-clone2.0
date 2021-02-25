@@ -27,7 +27,7 @@ padding: 8px 20px;
 display: flex;
 align-items: center;
 :hover{
-    background: #ababab;
+    background: #ddd;
 }
 `
 
