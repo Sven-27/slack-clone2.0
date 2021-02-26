@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import SendIcon from '@material-ui/icons/Send';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
@@ -16,13 +16,24 @@ import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import DeveloperModeIcon from '@material-ui/icons/DeveloperMode';
 
-function ChatInput() {
+function ChatInput({sendMessage}) {
+    const [input, setInput] = useState("")
+
+    const send = (e) => {
+e.preventDefault()
+if(!input) return
+sendMessage(input)
+setInput("")
+    }
     return (
         <Container>
             <InputContainer>
                 <form>
             <div>
-                    <input type="text" placeholder="Message here..." />
+                    <input onChange={(e)=>setInput(e.target.value)}
+                     type="text" 
+                     value={input}
+                      placeholder="Message here..." />
             </div>
                <div>
                <Left>
@@ -42,7 +53,9 @@ function ChatInput() {
                 <AlternateEmailIcon />
                 <EmojiEmotionsIcon />
                 <AttachFileIcon />
-                    <SendButton>
+                    <SendButton
+                    type="submit"
+                     onClick={send}>
                     <Send />
                     </SendButton>
                 </Right>
@@ -63,7 +76,7 @@ padding-bottom: 24px;
 `
 
 const InputContainer = styled.div`
-border: 1px solid rgb(0, 150,255);
+border: 1px solid #720000;
 border-radius: 4px;
 
 form{
@@ -75,10 +88,10 @@ form{
     input{
         flex: 1;
         border: none;
-        font-size: 13px;
+        font-size: 16px;
         outline: none;
+        color: #B80000;
         width: 100%;
-        color: #ababab;
         background: transparent;
         display: flex;
         margin-top: 8px;
@@ -122,7 +135,7 @@ justify-content: flex-end;
 }
 `
 
-const SendButton = styled.div`
+const SendButton = styled.button`
 width: 18px;
 border-radius: 2px;
 width: 32px;
@@ -130,7 +143,9 @@ height: 32px;
 display: flex;
 align-items: center;
 justify-content: center;
-margin-right: 5px;
+outline: none;
+margin-right: 15px;
+margin-left: 10px;
 margin-bottom: 3px;
 cursor: pointer;
 
@@ -139,9 +154,9 @@ cursor: pointer;
     height: 32px;
     padding: 5px;
     border-radius: 4px;
-    background: rgb(0,150,255);
+    background: #B80000;
     :hover{
-    background: #4900ff;
+    background: #720000;
 }
 
 

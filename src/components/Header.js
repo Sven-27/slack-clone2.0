@@ -7,7 +7,7 @@ import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./GlobalStyles";
 import { lightTheme, darkTheme } from "../Themes"
 
-function Header() {
+function Header({user, signOut}) {
     const [theme, setTheme] = useState('light');
     const themeToggler = () => {
       theme === 'light' ? setTheme('dark') : setTheme('light')
@@ -29,10 +29,10 @@ function Header() {
             </Main>
             <UserContainer>
                 <Name>
-                    Sven
+                   {user.name}
                 </Name>
-                <UserImage>
-                    <img src="https://i.imgur.com/6VBx3io.png" alt="Avatar" />
+                <UserImage onClick={signOut}>
+                    <img alt="" src={user.photo ? user.photo : "https://i.imgur.com/6VBx3io.png"} />
                 </UserImage>
             </UserContainer>
         </Container>
@@ -44,15 +44,16 @@ function Header() {
 export default Header
 
 const Container = styled.div`
-background: #333;
-color: rgb(0,150,255);
+background: #000;
+color: #B80000;
+height: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
 position: relative;
 z-index: 10;
 
-box-shadow: 0 1px 0 0 rgb(255 255 255);
+box-shadow: 0 1px 0 0 #720000;
 
 button{
     position: absolute;
@@ -80,7 +81,7 @@ margin-right: 16px;
 
 const Search = styled.div`
 width: 100%;
-box-shadow: inset 0 0 0 1px rgb(0, 150, 255);
+box-shadow: inset 0 0 0 1px #720000;
 border-radius: 6px;
 display: flex;
 align-items: center;
@@ -91,12 +92,10 @@ input{
     outline: none;
     padding-left: 8px;
     padding-right: 8px;
-    color: rgb(0,150,255);
+    color: #B80000;
     padding-top: 4px;
     padding-bottom: 4px;
-}
-input::placeholder{
-    color: rgb(0,150,255);
+    font-size: 16px;
 }
 `
 
@@ -115,8 +114,9 @@ padding-right: 16px;
 const UserImage = styled.div`
 width: 28px;
 height: 28px;
-border: 2px solid white;
+border: 2px solid #720000;
 border-radius: 3px;
+cursor: pointer;
 
 img{
     width: 100%;

@@ -5,8 +5,18 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { sidebarItemsData } from '.././data/SidebarData'
 import AddIcon from '@material-ui/icons/Add';
 import db from '../firebase'
+import {useHistory} from 'react-router-dom'
 
 function Sidebar(props) {
+    const history = useHistory()
+
+const goToChannel = (id) =>{
+    if(id){
+        console.log(id)
+        history.push(`/room/${id}`)
+    }
+}
+
     const addChannel = () => {
             const promptName = prompt("Enter channel name")
             if(promptName){
@@ -46,7 +56,7 @@ function Sidebar(props) {
                 <ChannelsList>
                 {
                     props.rooms.map(item => (
-                        <Channel>
+                        <Channel onClick={()=>goToChannel(item.id)}>
                             # {item.name}
                         </Channel>
                     ))
@@ -61,20 +71,21 @@ function Sidebar(props) {
 export default Sidebar
 
 const Container = styled.div`
-background: #222;
-color: rgb(0,150,255);
+background: #000;
+color: #B80000;
 margin-top: 0;
+border-right: 1px solid #720000;
 `
 
 const WorkspaceContainer = styled.div`
-color: rgb(0,150,255);
+color: #E30000;
 height: 64px;
 display: flex;
 padding-left: 19px;
 align-items: center;
 padding-left: 19px;
 justify-content: space-between;
- border-bottom: 1px solid rgb(0,150,255); 
+ border-bottom: 1px solid #720000; 
 `
 
 const Name = styled.div`
@@ -84,13 +95,13 @@ const Name = styled.div`
 const NewMessage = styled.div`
 width: 36px;
 height: 36px;
-background: #444;
+background: #111;
 color: inherit;
 fill: #444;
 display: flex;
 justify-content: center;
 align-items: center;
-border: 1px solid rgb(0,150,255);
+border: 1px solid #720000;
 border-radius: 50%;
 margin-right: 20px;
 cursor: pointer;
@@ -101,7 +112,7 @@ padding-top: 20px;
 `
 
 const MainChannelItem = styled.div`
-color: rgb(0,150,255);
+color: inherit;
 display: grid;
 grid-template-columns: 15% auto;
 height: 28px;
@@ -114,7 +125,7 @@ cursor: pointer;
 `
 
 const ChannelsContainer = styled.div`
-color: rgb(0,150,255);
+color: #E30000;
 margin-top: 10px;
 `
 
